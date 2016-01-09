@@ -1,0 +1,9 @@
+- deschid un ifstream peste fisier
+- citesc continutul fisierului in stringstream
+- citesc o linie din ss;
+- o transform in tokens dupa reguli de CSV ( separare prin virgula, un item incepe si se termina cu ", un item poate contine "" care inseamna ca contine ")
+- trimit lista de tokens catre clasa pe care o instantiez si ea transforma tokens in valori
+
+
+Performance
+- paralelizez tokenizarea fiecarei linii cu threaduri, CUDA, AMP
