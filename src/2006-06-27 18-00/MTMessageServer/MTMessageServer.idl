@@ -1,0 +1,182 @@
+// MTMessageServer.idl : IDL source for MTMessageServer.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MTMessageServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(3F899350-5F7F-4962-A447-7DD8A0FD1FA2),
+	
+		helpstring("ISettings Interface"),
+		pointer_default(unique)
+	]
+	interface ISettings : IUnknown
+	{
+		[helpstring("method GetClientThreadsStartNumber")]
+		HRESULT GetClientThreadsStartNumber([out] long *lpValue);
+		[helpstring("method SetClientThreadsStartNumber")]
+		HRESULT SetClientThreadsStartNumber([in] long lValue);
+		[helpstring("method GetClientThreadsStopNumber")]
+		HRESULT GetClientThreadsStopNumber([out] long *lpValue);
+		[helpstring("method SetClientThreadsStopNumber")]
+		HRESULT SetClientThreadsStopNumber([in] long lValue);
+		[helpstring("method GetServerThreadsStartNumber")]
+		HRESULT GetServerThreadsStartNumber([out] long *lpValue);
+		[helpstring("method SetServerThreadsStartNumber")]
+		HRESULT SetServerThreadsStartNumber([in] long lValue);
+		[helpstring("method GetServerThreadsStopNumber")]
+		HRESULT GetServerThreadsStopNumber([out] long *lpValue);
+  	[helpstring("method SetServerThreadsStopNumber")]
+		HRESULT SetServerThreadsStopNumber([in] long lValue);
+		[helpstring("method GetClientThreadsSleepTime")]
+		HRESULT GetClientThreadsSleepTime([out] long *lpValue);
+		[helpstring("method SetClientThreadsSleepTime")]
+		HRESULT SetClientThreadsSleepTime([in] long lValue);
+		[helpstring("method SetServerThreadsSleepTime")]
+		HRESULT SetServerThreadsSleepTime([in] long lValue);
+		[helpstring("method GetServerThreadsSleepTime")]
+		HRESULT GetServerThreadsSleepTime([out] long *lpValue);
+		[helpstring("method GetQueueMinMessages")]
+		HRESULT GetQueueMinMessages([out] long *lpValue);
+		[helpstring("method SetQueueMinMessages")]
+		HRESULT SetQueueMinMessages([in] long lValue);
+		[helpstring("method GetQueueMaxMessages")]
+		HRESULT GetQueueMaxMessages([out] long *lpValue);
+		[helpstring("method SetQueueMaxMessages")]
+		HRESULT SetQueueMaxMessages([in] long lValue);
+		[helpstring("method GetLogLevel")]
+		HRESULT GetLogLevel([out] long *lpValue);
+		[helpstring("method SetLogLevel")]
+		HRESULT SetLogLevel([in] long lValue);
+		[helpstring("method GetLogFilename")]
+		HRESULT GetLogFilename([out] BSTR *bstrFilename);
+		[helpstring("method SetLogFilename")]
+		HRESULT SetLogFilename([in] BSTR bstrFilename);
+	};
+	[
+		object,
+		uuid(B28AB798-6313-479E-BD01-6619B740965C),
+	
+		helpstring("ILogger Interface"),
+		pointer_default(unique)
+	]
+	interface ILogger : IUnknown
+	{
+		[helpstring("method DisplayLog")]
+    HRESULT DisplayLog();
+		[helpstring("method AddLogEntry")]
+    HRESULT AddLogEntry([in] byte bType, [in] long lThreadID, [in] long lNumber, [in] BSTR bstrDescription);
+		[helpstring("method SetLoggingLevel")]
+    HRESULT SetLoggingLevel([in] byte bLevel);
+		[helpstring("method GetLLDetails")]
+    HRESULT GetLLDetails([out] BSTR arrLevelName[5], [out] long arrLevelID[5]);
+	};
+	[
+		object,
+		uuid(6D782F75-08D2-4C3D-913B-60C40AF4B4D0),
+	
+		helpstring("IMessageQueue Interface"),
+		pointer_default(unique)
+	]
+	interface IMessageQueue : IUnknown
+	{
+		[helpstring("method PushMessage")]
+    HRESULT PushMessage([in] long lThreadID, [in] BSTR bstrMessage);
+		[helpstring("method PopMessage")]
+    HRESULT PopMessage([out] VARIANT *pvtValid, [out] BSTR *pbstrMessage);
+		[helpstring("method AddUIListener")]
+    HRESULT AddUIListener([in] long lThreadID);
+		[helpstring("method UpdateConfiguration")]
+    HRESULT UpdateConfiguration([in] VARIANT vtInitialize,
+                                [in] long m_lNbClientThreadsStart, [in] long m_lNbServerThreadsStart,
+                                [in] long m_lNbClientThreadsStop, [in] long m_lNbServerThreadsStop,
+                                [in] long m_lSleepTimeClients, [in] long m_lSleepTimeServers,
+                                [in] long lMinMessages, [in] long lMaxMessages);
+		[helpstring("method CanPushMessages")]
+    HRESULT CanPushMessages([out] VARIANT *pvtCanPushMessages);
+		[helpstring("method CanPopMessages")]
+    HRESULT CanPopMessages([out] VARIANT *pvtCanPopMessages);
+		[helpstring("method ClearQueue")]
+    HRESULT ClearQueue();
+		[helpstring("method StopQueue")]
+    HRESULT StopQueue();
+		[helpstring("method GetRunningClientThreads")]
+    HRESULT GetRunningClientThreads([out] long *plClientsRunning);
+		[helpstring("method GetRunningServerThreads")]
+    HRESULT GetRunningServerThreads([out] long *plServersRunning);
+	};
+[
+	uuid(2C614BBB-C577-4D3A-B96E-39F73F18F8DB),
+	version(1.0),
+	helpstring("MTMessageServer 1.0 Type Library")
+]
+library MTMESSAGESERVERLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(1F980E0B-5793-4C1D-AF65-DAC24C16D9AB),
+		helpstring("Settings Class")
+	]
+	coclass Settings
+	{
+		[default] interface ISettings;
+	};
+	[
+		uuid(1C71888D-3036-470E-9032-8D19F46165F4),
+		helpstring("Logger Class")
+	]
+	coclass Logger
+	{
+		[default] interface ILogger;
+	};
+
+  typedef enum {ET_MsgServerStart=0,
+                ET_MsgServerStop,
+                ET_MsgClearQueue,
+                ET_MsgStopQueue,
+                ET_MsgQueueMin,
+                ET_MsgQueueMax,
+                ET_MsgMessagePush,
+                ET_MsgMessagePop,
+                ET_MsgCThreadChanged,
+                ET_MsgCThreadStarted,
+                ET_MsgCThreadStopped,
+                ET_MsgSThreadChanged,
+                ET_MsgSThreadStarted,
+                ET_MsgSThreadStopped,
+                ET_MsgErrorinRegistry,
+                ET_MsgErrorQueueUnderflow,
+                ET_MsgErrorQueueOverflow} eEventType;
+
+  typedef enum {LL_None = 0,
+                LL_Errors,
+                LL_Activity,
+                LL_UserInterface,
+                LL_All} eLoggingLevel;
+
+  typedef enum {TM_AddMessage = (0x401),
+                TM_DelMessage = (0x402)} eWndMessageType;
+
+  typedef enum {C_ClientThreadsStart = 0x01,
+                C_ServerThreadsStart = 0x02,
+                C_ClientThreadsStop  = 0x04,
+                C_ServerThreadsStop  = 0x08,
+                C_SleepTimeClients   = 0x10,
+                C_SleepTimeServers   = 0x20,
+                C_QueueMinMessages   = 0x40,
+                C_QueueMaxMessages   = 0x80} eConfiguration;
+
+	[
+		uuid(B7C0A554-476D-44BC-976A-2BBAB6218E95),
+		helpstring("MessageQueue Class")
+	]
+	coclass MessageQueue
+	{
+		[default] interface IMessageQueue;
+	};
+};

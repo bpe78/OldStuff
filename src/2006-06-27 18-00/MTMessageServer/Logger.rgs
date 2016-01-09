@@ -1,0 +1,25 @@
+HKCR
+{
+	MTMessageServer.Logger.1 = s 'Logger Class'
+	{
+		CLSID = s '{1C71888D-3036-470E-9032-8D19F46165F4}'
+	}
+	MTMessageServer.Logger = s 'Logger Class'
+	{
+		CLSID = s '{1C71888D-3036-470E-9032-8D19F46165F4}'
+		CurVer = s 'MTMessageServer.Logger.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1C71888D-3036-470E-9032-8D19F46165F4} = s 'Logger Class'
+		{
+			ProgID = s 'MTMessageServer.Logger.1'
+			VersionIndependentProgID = s 'MTMessageServer.Logger'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{2C614BBB-C577-4D3A-B96E-39F73F18F8DB}'
+		}
+	}
+}

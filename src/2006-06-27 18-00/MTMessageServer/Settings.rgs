@@ -1,0 +1,25 @@
+HKCR
+{
+	MTMessageServer.Settings.1 = s 'Settings Class'
+	{
+		CLSID = s '{1F980E0B-5793-4C1D-AF65-DAC24C16D9AB}'
+	}
+	MTMessageServer.Settings = s 'Settings Class'
+	{
+		CLSID = s '{1F980E0B-5793-4C1D-AF65-DAC24C16D9AB}'
+		CurVer = s 'MTMessageServer.Settings.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1F980E0B-5793-4C1D-AF65-DAC24C16D9AB} = s 'Settings Class'
+		{
+			ProgID = s 'MTMessageServer.Settings.1'
+			VersionIndependentProgID = s 'MTMessageServer.Settings'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{2C614BBB-C577-4D3A-B96E-39F73F18F8DB}'
+		}
+	}
+}

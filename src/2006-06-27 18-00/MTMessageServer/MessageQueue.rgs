@@ -1,0 +1,25 @@
+HKCR
+{
+	MTMessageServer.MessageQueue.1 = s 'MessageQueue Class'
+	{
+		CLSID = s '{B7C0A554-476D-44BC-976A-2BBAB6218E95}'
+	}
+	MTMessageServer.MessageQueue = s 'MessageQueue Class'
+	{
+		CLSID = s '{B7C0A554-476D-44BC-976A-2BBAB6218E95}'
+		CurVer = s 'MTMessageServer.MessageQueue.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {B7C0A554-476D-44BC-976A-2BBAB6218E95} = s 'MessageQueue Class'
+		{
+			ProgID = s 'MTMessageServer.MessageQueue.1'
+			VersionIndependentProgID = s 'MTMessageServer.MessageQueue'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{2C614BBB-C577-4D3A-B96E-39F73F18F8DB}'
+		}
+	}
+}

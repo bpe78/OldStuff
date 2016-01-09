@@ -1,0 +1,246 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\ServerUI.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\ServerUI.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SERVERUI_DIALOG DIALOGEX 0, 0, 422, 298
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Multithreaded message queue tester"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_CA_NBCLIENTS_START,318,16,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Start",IDC_BTN_CA_CLIENTS_START,368,16,40,14
+    EDITTEXT        IDC_CA_NBSERVERS_START,318,32,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Start",IDC_BTN_CA_SERVERS_START,368,32,40,14
+    EDITTEXT        IDC_CA_NBCLIENTS_STOP,318,48,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Stop",IDC_BTN_CA_CLIENTS_STOP,368,48,40,14
+    EDITTEXT        IDC_CA_NBSERVERS_STOP,318,63,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Stop",IDC_BTN_CA_SERVERS_STOP,368,63,40,14
+    EDITTEXT        IDC_CA_SLEEP_CLIENT,318,78,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Use",IDC_BTN_CA_SLEEP_CLIENT,368,78,40,14
+    EDITTEXT        IDC_CA_SLEEP_SERVER,318,94,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Use",IDC_BTN_CA_SLEEP_SERVER,368,94,40,14
+    EDITTEXT        IDC_CA_QUEUE_MIN,318,110,45,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Use",IDC_BTN_CA_QUEUE_MIN,368,110,40,14
+    EDITTEXT        IDC_CA_QUEUE_MAX,318,126,45,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Use",IDC_BTN_CA_QUEUE_MAX,368,126,40,14
+    PUSHBUTTON      "Clear",IDC_BTN_DISPLAY_CLEAR,218,221,84,14
+    DEFPUSHBUTTON   "Stop",IDC_BTN_DISPLAY_STOP,318,221,84,14
+    PUSHBUTTON      "Set Logging Options...",IDC_BTN_LOG_OPTIONS,218,254,84,
+                    14
+    PUSHBUTTON      "Open Log",IDC_BTN_LOG_DISPLAY,318,254,84,14
+    PUSHBUTTON      "Exit",IDC_BTN_APPLICATION_EXIT,345,277,70,14
+    LISTBOX         IDC_LIST_QUEUE,7,17,196,274,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL
+    GROUPBOX        "Configuration and Actions",IDC_STATIC,211,7,204,172
+    GROUPBOX        "Display",IDC_STATIC,211,183,204,56
+    GROUPBOX        "Application Log",IDC_STATIC,211,244,204,28
+    LTEXT           "Number of client threads",IDC_STATIC,218,18,91,8
+    LTEXT           "Number of server threads",IDC_STATIC,218,33,91,8
+    LTEXT           "Sleep time between requests",IDC_STATIC,218,80,91,8
+    LTEXT           "Sleep time between servings",IDC_STATIC,218,96,91,8
+    LTEXT           "Max messages in queue",IDC_STATIC,218,127,91,8
+    LTEXT           "Min messages in queue",IDC_STATIC,218,112,91,8
+    LTEXT           "Queue of messages",IDC_STATIC,45,7,68,8
+    LTEXT           "Number of client threads",IDC_STATIC,218,49,91,8
+    LTEXT           "Number of server threads",IDC_STATIC,218,65,91,8
+    LTEXT           "Client threads running now :",IDC_STATIC,218,193,91,8
+    LTEXT           "Server threads running now :",IDC_STATIC,218,207,91,8
+    EDITTEXT        IDC_RUNNING_CLIENT_THREADS,318,191,88,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+    EDITTEXT        IDC_RUNNING_SERVER_THREADS,318,205,88,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | ES_NUMBER
+END
+
+IDD_LOG_OPTIONS DIALOG DISCARDABLE  0, 0, 232, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Logging options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,63,58,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,118,58,50,14
+    LTEXT           "Location of log file :",IDC_STATIC,11,16,62,8
+    EDITTEXT        IDC_LOG_FILENAME,77,13,123,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BTN_LOG_BROWSE,204,13,16,14
+    LTEXT           "Logging Level :",IDC_STATIC,11,33,62,8
+    COMBOBOX        IDC_CB_LOG_LEVEL,77,31,123,57,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "",IDC_STATIC,7,3,218,45
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "ServerUI MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "ServerUI\0"
+            VALUE "LegalCopyright", "Copyright (C) 2006\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "ServerUI.EXE\0"
+            VALUE "ProductName", "ServerUI Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SERVERUI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 415
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 291
+    END
+
+    IDD_LOG_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 225
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\ServerUI.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
