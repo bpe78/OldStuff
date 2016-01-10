@@ -1,0 +1,39 @@
+# Microsoft Developer Studio Generated Dependency File, included by X1.mak
+
+.\MainFrm.cpp : \
+	".\MainFrm.h"\
+	".\StdAfx.h"\
+	".\X1.h"\
+	
+
+.\StdAfx.cpp : \
+	".\StdAfx.h"\
+	
+
+.\X1.cpp : \
+	".\MainFrm.h"\
+	".\StdAfx.h"\
+	".\X1.h"\
+	".\X1Doc.h"\
+	".\X1View.h"\
+	
+
+.\X1.rc : \
+	".\res\Toolbar.bmp"\
+	".\res\X1.ico"\
+	".\res\X1.rc2"\
+	".\res\X1Doc.ico"\
+	
+
+.\X1Doc.cpp : \
+	".\StdAfx.h"\
+	".\X1.h"\
+	".\X1Doc.h"\
+	
+
+.\X1View.cpp : \
+	".\StdAfx.h"\
+	".\X1.h"\
+	".\X1Doc.h"\
+	".\X1View.h"\
+	
